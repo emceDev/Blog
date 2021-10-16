@@ -1,0 +1,42 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+<body>
+  <%- include("./partials/nav.ejs") %>
+
+  <div class="postDetails">
+      <h2><%= blog.title %></h2>
+    <img src='https://res.cloudinary.com/m4t1ce/image/upload/v1634394056/<%= (blog.public_id) %>'  >
+    <div class="postDetailsText">
+      <p><%= blog.body %></p>
+    </div>
+
+    <% if(user){ %> 
+      <a class="postDetailsDelete" data-doc="<%= blog._id %>">
+        <img src="/trashcan.svg" alt="delete icon">
+      </a>
+    <%} %>
+  </div>
+
+  <%- include("./partials/footer.ejs") %>
+
+  <script>
+    
+    const trashcan = document.getElementsByClassName('postDetailsDelete')[0];
+    console.log(trashcan)
+    if(trashcan){ 
+      
+      trashcan.addEventListener('click', (e) => {
+        const endpoint = `/blogs/${trashcan.dataset.doc}`;
+
+        fetch(endpoint, {
+          method: 'DELETE',
+        })
+        .then(response => response.json())
+        .then(data => window.location.href = data.redirect)
+        .catch(err => console.log(err));
+      });
+      }
+  </script>
+</body>
+</html>

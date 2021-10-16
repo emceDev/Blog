@@ -1,0 +1,35 @@
+.postContainer {
+	/* background-color: lightblue; */
+	width: 90vw;
+	margin: 0% auto;
+	padding: 1vw;
+	min-height: 50vh;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.postContainer a {
+	/* background-color: red; */
+	margin: 0.1vw;
+	padding: 0.1vw;
+}
+.smallImage {
+	height: 50%;
+	width: 100%;
+	align-self: center;
+}
+.post {
+	/* background-color: blueviolet; */
+	width: 20vw;
+	height: 50vh;
+}
+.post h3 {
+	word-break: break-all;
+	font-size: large;
+	font-weight: bold;
+}
+.post p {
+	font-size: medium;
+	word-break: break-all;
+}
