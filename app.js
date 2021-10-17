@@ -15,8 +15,8 @@ const app = express();
 // connect to mongodb & listen for requests
 const dbURI = "mongodb+srv://Mateusz:Mongo1234@blogtutorial.e45gp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
-mongoose.connect(dbURI, { useFindAndModify: true,useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true})
-  .then(result => app.listen(3000))
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true, useFindAndModify: true })
+  .then(result => app.listen(443))
   .catch(err => console.log(err));
 
 // register view engine
